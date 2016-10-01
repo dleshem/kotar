@@ -39,6 +39,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "request": "^2.70.0"
   },
   "directories": {
     "test": "test"

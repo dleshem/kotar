@@ -3,9 +3,22 @@ import * as ImageTypes from '../src/ImageTypes'
 import {expect, assert} from 'chai'
 
 describe('KotarClient', () => {
-	const imagesEndpoint = 'http://localhost:1234/'
+	const imagesEndpoint = 'http://example.org/'
 	const kotarClient = new KotarClient({
 		imagesEndpoint
+	})
+	
+	// TODO: use a driver instead of testing against the production server
+	describe('getPagesInfo', () => {
+		const someBookId = '30717'
+		
+		it('returns the book\'s pages info', () => {
+			return kotarClient.getPagesInfo({
+				bookId: someBookId
+			}).then((pagesInfo) => {
+				expect(pagesInfo.pages).to.not.be.empty
+			})
+		})
 	})
 	
 	describe('getImageUrl', () => {
